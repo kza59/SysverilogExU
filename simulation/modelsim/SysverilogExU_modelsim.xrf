@@ -1,0 +1,12 @@
+vendor_name = ModelSim
+source_file = 1, /home/kanez/Useful/RTL_Projects/SysverilogExU/SourceCode/fa.sv
+source_file = 1, /home/kanez/Useful/RTL_Projects/SysverilogExU/db/SysverilogExU.cbx.xml
+design_name = fa
+instance = comp, \s~output , s~output, fa, 1
+instance = comp, \cout~output , cout~output, fa, 1
+instance = comp, \a~input , a~input, fa, 1
+instance = comp, \cin~input , cin~input, fa, 1
+instance = comp, \b~input , b~input, fa, 1
+instance = comp, \s~0 , s~0, fa, 1
+instance = comp, \cout~0 , cout~0, fa, 1
+instance = comp, \~QUARTUS_CREATED_GND~I , ~QUARTUS_CREATED_GND~I, fa, 1
