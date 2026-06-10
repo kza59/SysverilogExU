@@ -1,13 +1,13 @@
-Fitter Status : Successful - Mon Jun  8 20:07:36 2026
+Fitter Status : Successful - Tue Jun  9 20:39:39 2026
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : SysverilogExU
-Top-level Entity Name : fa
+Top-level Entity Name : rcan
 Family : Cyclone V
 Device : 5CGXFC7C7F23C8
 Timing Models : Final
-Logic utilization (in ALMs) : 2 / 56,480 ( < 1 % )
+Logic utilization (in ALMs) : 84 / 56,480 ( < 1 % )
 Total registers : 0
-Total pins : 5 / 268 ( 2 % )
+Total pins : 194 / 268 ( 72 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 7,024,640 ( 0 % )
 Total RAM Blocks : 0 / 686 ( 0 % )

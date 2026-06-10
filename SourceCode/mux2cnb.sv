@@ -1,0 +1,11 @@
+// 2-Channel, N bit multiplexer
+module mux2cnb #(
+    parameter int N = 64
+)(
+input logic[N-1:0] x0,
+input logic[N-1:0] x1,
+input logic s,
+output logic[N-1:0] y
+);
+assign y = s ? x1 : x0; 
+endmodule

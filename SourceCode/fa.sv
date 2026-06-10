@@ -1,3 +1,4 @@
+// Full Adder
 module fa (
 	input logic a,
 	input logic b,

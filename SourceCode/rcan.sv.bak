@@ -1,0 +1,28 @@
+// Ripple-Carry Adder (N-bit) RCAN
+module rcan(parameter N = 64;)
+(
+generic natural n,
+input logic a[N-1:0],
+input logic b[N-1:0],
+input logic cin,
+output logic s[N-1:0],
+output logic cout
+);
+genvar i;
+logic [N:0] carry;
+assign carry[0] = cin;
+assign cout = carry[N];
+generate
+    for(i=0; i<N; i++) begin : gen_fa
+        fa fa_i(
+            .a(a[i]),
+            .b(b[i]),
+            .cin(carry[i]),
+            .s(s[i]),
+            .cout(carry[i+1])
+        );
+    end 
+endgenerate
+
+
+endmodule

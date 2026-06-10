@@ -1,0 +1,67 @@
+// Carry-Select Adder (N-bit) CSAN
+module csan #(parameter int N = 64) (
+input logic[N-1:0] a,
+input logic[N-1:0] b,
+input logic cin,
+output logic[N-1:0] s,
+output logic cout
+);
+
+logic [N/2-1:0] s_cin0;
+logic [N/2-1:0] s_cin1;
+logic mux_sel;
+
+generate
+if (N>1) begin
+    csan #(.N(N/2)) assuming_cin1(
+        .a(a[N-1:N/2]),    
+        .b(b[N-1:N/2]),
+        .cin(1'b1), 
+        .s(s_cin1),
+        .cout(cout_cin1)   
+    );
+    csan #(.N(N/2)) assuming_cin0(
+        .a(a[N-1:N/2]),
+        .b(b[N-1:N/2]),    
+        .cin(1'b0),
+        .s(s_cin0),
+        .cout(cout_cin0)
+
+    );
+    csan #(.N(N/2)) rightmost(
+        .a(a[N/2-1:0]),
+        .b(b[N/2-1:0]),
+        .cin(cin),
+        .s(s[N/2 - 1 : 0]),
+        .cout(mux_sel)    
+    );
+
+    mux2cnb #(.N(N/2)) s_mux (
+        .x0(s_cin0),
+        .x1(s_cin1),
+        .s(mux_sel),
+        .y(s[N-1:N/2])
+    );
+
+    mux2cnb #(.N(1)) c_mux (
+        .x0(cout_cin0),
+        .x1(cout_cin1),
+        .s(mux_sel),
+        .y(cout)
+    );
+
+
+end else begin
+    // Default to full adder, of course
+    fa base_fa(
+        .a(a),
+        .b(b),
+        .cin(cin),
+        .s(s),
+        .cout(cout)
+    );
+end
+endgenerate
+
+
+endmodule
