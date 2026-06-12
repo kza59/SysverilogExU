@@ -7,8 +7,8 @@ output logic[N-1:0] s,
 output logic cout
 );
 
-logic [N/2-1:0] s_cin0;
-logic [N/2-1:0] s_cin1;
+logic [N/2-1:0] s_cin0, s_cin1;
+logic cout_cin0, cout_cin1;
 logic mux_sel;
 
 generate

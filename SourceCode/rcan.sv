@@ -11,8 +11,7 @@
 // logic a[1:0]: a is not a 2-bit vector. a[1], a[0] are seperate entities
 module rcan #(parameter int N = 64)
 (
-input logic[N-1:0] a,
-input logic[N-1:0] b,
+input logic[N-1:0] a,b,
 input logic cin,
 output logic[N-1:0] s,
 output logic cout
